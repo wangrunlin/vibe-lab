@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment API Editorial Posters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-paper: #f2efe9;
+            --text-ink: #1a1a1a;
+            --accent-orange: #d95e00;
+        }
+
+        body {
+            background-color: #e5e5e5;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: var(--text-ink);
+            padding: 40px;
+        }
+
+        .poster-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .poster {
+            width: 600px;
+            height: 800px;
+            background-color: var(--bg-paper);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+        }
+
+        /* SVG Noise Texture Overlay */
+        .noise::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            opacity: 0.06;
+            filter: contrast(150%) brightness(100%);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+        }
+
+        .font-serif-title { font-family: 'Noto Serif SC', serif; font-weight: 900; }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+        
+        .accent-bar {
+            width: 80px;
+            height: 6px;
+            background-color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        .dark-poster {
+            background-color: var(--text-ink);
+            color: var(--bg-paper);
+        }
+        .dark-poster .accent-bar { background-color: var(--accent-orange); }
+        .dark-poster .text-gray-500 { color: #666; }
+
+        .number-tag {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent-orange);
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .code-block {
+            background: rgba(0,0,0,0.05);
+            padding: 15px;
+            border-left: 3px solid var(--accent-orange);
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+        .dark-poster .code-block {
+            background: rgba(255,255,255,0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+
+        <!-- CARD 1: THE COVER -->
+        <div class="poster noise">
+            <div class="flex justify-between items-start">
+                <div class="font-oswald text-xl tracking-widest border-b-2 border-black">V1.0 / 2025</div>
+                <div class="font-oswald text-xl">ALIN.RUN</div>
+            </div>
+            
+            <div class="mt-auto">
+                <div class="accent-bar"></div>
+                <h1 class="text-[84px] leading-[0.9] font-oswald uppercase font-bold tracking-tighter">
+                    Payment<br><span class="text-[#d95e00]">API</span>
+                </h1>
+                <h2 class="font-serif-title text-4xl mt-6 tracking-tight">
+                    一个链接，<br>开启全球收款。
+                </h2>
+            </div>
+            
+            <div class="mt-20 border-t border-black pt-6 flex justify-between items-end">
+                <p class="font-sans text-sm font-medium uppercase tracking-widest leading-tight">
+                    Stripe Jump Service<br>Universal Payment Gateway
+                </p>
+                <i class="fa-solid fa-arrow-right text-3xl"></i>
+            </div>
+        </div>
+
+        <!-- CARD 2: THE PURPOSE -->
+        <div class="poster noise">
+            <div class="font-oswald text-accent-orange text-lg">01 / PURPOSE & VALUE</div>
+            <h3 class="font-serif-title text-4xl mt-4 mb-10">核心价值</h3>
+            
+            <div class="space-y-12">
+                <div class="flex gap-6">
+                    <span class="font-oswald text-4xl opacity-20">01</span>
+                    <div>
+                        <h4 class="font-bold text-xl mb-2">极简接入</h4>
+                        <p class="text-gray-600 leading-relaxed">通过简单的 URL 参数即可发起支付，无需每个项目单独集成 Stripe SDK，零代码负担。</p>
+                    </div>
+                </div>
+                
+                <div class="flex gap-6">
+                    <span class="font-oswald text-4xl opacity-20">02</span>
+                    <div>
+                        <h4 class="font-bold text-xl mb-2">快速验证</h4>
+                        <p class="text-gray-600 leading-relaxed">适用于预售验证付费意愿、个人赞赏及产品一次性购买场景。先收款，再开发。</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6">
+                    <span class="font-oswald text-4xl opacity-20">03</span>
+                    <div>
+                        <h4 class="font-bold text-xl mb-2">全环境通用</h4>
+                        <p class="text-gray-600 leading-relaxed">无论是静态博客、Notion 页面还是社交媒体，任何能放链接的地方都能变成收银台。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-auto pt-10 border-t border-gray-200">
+                <div class="text-xs font-oswald tracking-[0.2em] text-gray-400 uppercase">Deployment: Cloudflare Workers</div>
+            </div>
+        </div>
+
+        <!-- CARD 3: THE LOGIC -->
+        <div class="poster noise">
+            <div class="font-oswald text-accent-orange text-lg">02 / INTERFACE</div>
+            <h3 class="font-serif-title text-4xl mt-4 mb-6">支付跳转逻辑</h3>
+            
+            <div class="bg-white p-6 shadow-sm border border-gray-100 mb-8">
+                <div class="text-sm font-oswald text-gray-400 mb-2 underline">ENDPOINT</div>
+                <div class="text-2xl font-oswald font-bold">GET /pay</div>
+            </div>
+
+            <h4 class="font-oswald text-sm tracking-widest mb-4 uppercase text-gray-500">Required Parameters</h4>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="border-l-2 border-black pl-3">
+                    <div class="font-oswald font-bold">amount</div>
+                    <div class="text-xs text-gray-500 italic">Number</div>
+                    <div class="text-sm">金额 (9.9 - 999)</div>
+                </div>
+                <div class="border-l-2 border-black pl-3">
+                    <div class="font-oswald font-bold">product</div>
+                    <div class="text-xs text-gray-500 italic">String</div>
+                    <div class="text-sm">产品/服务名称</div>
+                </div>
+            </div>
+
+            <h4 class="font-oswald text-sm tracking-widest mb-4 uppercase text-gray-500">Optional Parameters</h4>
+            <div class="space-y-4">
+                <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                    <span class="font-oswald text-sm">currency</span>
+                    <span class="text-xs bg-gray-200 px-2 py-0.5 rounded">Default: "usd"</span>
+                </div>
+                <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                    <span class="font-oswald text-sm">email</span>
+                    <span class="text-xs text-gray-400 italic">Pre-fill user email</span>
+                </div>
+                <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                    <span class="font-oswald text-sm">success_url</span>
+                    <span class="text-xs text-gray-400 italic">Return after success</span>
+                </div>
+                <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                    <span class="font-oswald text-sm">metadata</span>
+                    <span class="text-xs text-gray-400 italic">JSON extra info</span>
+                </div>
+            </div>
+
+            <div class="mt-auto p-4 bg-orange-50 border border-orange-100 rounded">
+                <p class="text-[10px] leading-tight text-orange-800">
+                    <i class="fa-solid fa-circle-info mr-1"></i>
+                    系统自动处理 Stripe Checkout Session 创建并进行 302 重定向。错误时将显示引导页面。
+                </p>
+            </div>
+        </div>
+
+        <!-- CARD 4: THE CODE (DARK MODE) -->
+        <div class="poster dark-poster noise">
+            <div class="font-oswald text-accent-orange text-lg">03 / USAGE EXAMPLE</div>
+            <h3 class="font-serif-title text-4xl mt-4 mb-10">即刻调用</h3>
+            
+            <div class="space-y-6">
+                <div>
+                    <div class="number-tag">BASIC</div>
+                    <p class="text-sm mb-2 opacity-70">基础用法：一键购买按钮</p>
+                    <div class="code-block text-accent-orange">
+                        &lt;a href="https://payment.alin.run/pay?amount=9.9&product=Report"&gt;<br>
+                        &nbsp;&nbsp;立即购买 $9.9<br>
+                        &lt;/a&gt;
+                    </div>
+                </div>
+
+                <div>
+                    <div class="number-tag">PRE-SALE</div>
+                    <p class="text-sm mb-2 opacity-70">高级用法：携带元数据进行预售验证</p>
+                    <div class="code-block text-gray-300">
+                        /pay?amount=19&product=EarlyBird<br>
+                        &metadata={"type":"presale","uid":"888"}
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 mt-10">
+                    <div class="aspect-square border border-gray-700 flex flex-col items-center justify-center p-2 text-center">
+                        <i class="fa-solid fa-bolt text-accent-orange mb-2"></i>
+                        <span class="text-[10px] uppercase font-oswald">Fast<br>Response</span>
+                    </div>
+                    <div class="aspect-square border border-gray-700 flex flex-col items-center justify-center p-2 text-center">
+                        <i class="fa-solid fa-shield-halved text-accent-orange mb-2"></i>
+                        <span class="text-[10px] uppercase font-oswald">Stripe<br>Secure</span>
+                    </div>
+                    <div class="aspect-square border border-gray-700 flex flex-col items-center justify-center p-2 text-center">
+                        <i class="fa-solid fa-globe text-accent-orange mb-2"></i>
+                        <span class="text-[10px] uppercase font-oswald">Multi<br>Currency</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-auto text-right">
+                <span class="font-oswald text-6xl opacity-10">SUCCESS</span>
+            </div>
+        </div>
+
+        <!-- CARD 5: THE FUTURE -->
+        <div class="poster noise">
+            <div class="font-oswald text-accent-orange text-lg">04 / ROADMAP</div>
+            <h3 class="font-serif-title text-4xl mt-4 mb-10">持续演进</h3>
+            
+            <ul class="space-y-6 font-medium">
+                <li class="flex items-center gap-4">
+                    <div class="w-2 h-2 rounded-full bg-accent-orange"></div>
+                    <span>支持订阅模式 (Subscription)</span>
+                </li>
+                <li class="flex items-center gap-4">
+                    <div class="w-2 h-2 rounded-full bg-accent-orange"></div>
+                    <span>Webhook 通知 (飞书/飞书机器人)</span>
+                </li>
+                <li class="flex items-center gap-4">
+                    <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                    <span class="text-gray-400">独立收款统计面板</span>
+                </li>
+                <li class="flex items-center gap-4">
+                    <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+                    <span class="text-gray-400">支持微信/支付宝 (国内适配)</span>
+                </li>
+            </ul>
+
+            <div class="mt-auto">
+                <div class="p-10 border-2 border-black flex flex-col items-center text-center">
+                    <div class="font-oswald text-sm tracking-[0.4em] mb-4">API ENDPOINT</div>
+                    <div class="text-2xl font-bold font-oswald">PAYMENT.ALIN.RUN</div>
+                    <div class="mt-6 text-xs text-gray-500">Built with Passion & Cloudflare</div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center mt-10">
+                <div class="text-[10px] text-gray-400 font-oswald uppercase">Created at 2025-12-28</div>
+                <div class="font-oswald text-sm font-bold italic">BY ALIN</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

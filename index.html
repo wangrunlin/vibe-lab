@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Lab</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-neutral-100 min-h-screen">
+    <div class="max-w-4xl mx-auto px-6 py-16">
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold text-neutral-900 mb-2">Vibe Lab</h1>
+            <p class="text-neutral-500">Vibe Coding 实验场</p>
+        </header>
+
+        <main>
+            <div id="projects" class="grid gap-4">
+                <div class="text-neutral-400">加载中...</div>
+            </div>
+        </main>
+
+        <footer class="mt-16 pt-8 border-t border-neutral-200">
+            <p class="text-neutral-400 text-sm">
+                <a href="https://github.com/wangrunlin/vibe-lab" class="hover:text-neutral-600">GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // 项目描述映射
+        const projectMeta = {
+            'waitlist-hook-api': 'Waitlist Hook API 编辑设计海报',
+            'payment-api-posters': '支付 API 编辑海报',
+            'twitter-2026-fortune': 'Twitter 2026 运势技术设计',
+            'shanxi-ancient-architecture': '山西古建巡礼视觉设计'
+        };
+
+        // 解析 GitHub Pages URL 获取仓库信息
+        function getRepoInfo() {
+            const hostname = location.hostname;
+            const pathname = location.pathname;
+
+            // 格式: username.github.io/repo-name/
+            if (hostname.endsWith('.github.io')) {
+                const owner = hostname.replace('.github.io', '');
+                const repo = pathname.split('/')[1] || '';
+                return { owner, repo };
+            }
+            return null;
+        }
+
+        // 从 GitHub API 获取目录列表
+        async function fetchProjects() {
+            const repoInfo = getRepoInfo();
+
+            if (!repoInfo || !repoInfo.repo) {
+                // 本地开发或非 GitHub Pages，使用硬编码列表
+                return Object.keys(projectMeta);
+            }
+
+            try {
+                const { owner, repo } = repoInfo;
+                const response = await fetch(
+                    `https://api.github.com/repos/${owner}/${repo}/contents`
+                );
+
+                if (!response.ok) throw new Error('API error');
+
+                const contents = await response.json();
+
+                // 过滤出目录（排除隐藏目录和特殊文件）
+                const dirs = contents
+                    .filter(item => item.type === 'dir' && !item.name.startsWith('.'))
+                    .map(item => item.name);
+
+                return dirs;
+            } catch (e) {
+                console.error('Failed to fetch from GitHub API:', e);
+                // 降级到硬编码列表
+                return Object.keys(projectMeta);
+            }
+        }
+
+        // 创建项目卡片元素
+        function createProjectCard(name) {
+            const desc = projectMeta[name] || '';
+
+            const link = document.createElement('a');
+            link.href = `./${name}/`;
+            link.className = 'block p-6 bg-white rounded-lg border border-neutral-200 hover:border-neutral-300 hover:shadow-sm transition-all';
+
+            const title = document.createElement('h2');
+            title.className = 'text-lg font-medium text-neutral-900 mb-1';
+            title.textContent = name;
+            link.appendChild(title);
+
+            if (desc) {
+                const descEl = document.createElement('p');
+                descEl.className = 'text-neutral-500 text-sm';
+                descEl.textContent = desc;
+                link.appendChild(descEl);
+            }
+
+            return link;
+        }
+
+        // 渲染项目列表
+        function renderProjects(projects) {
+            const container = document.getElementById('projects');
+            container.replaceChildren();
+
+            if (projects.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'text-neutral-400';
+                empty.textContent = '暂无项目';
+                container.appendChild(empty);
+                return;
+            }
+
+            projects.forEach(name => {
+                container.appendChild(createProjectCard(name));
+            });
+        }
+
+        // 初始化
+        fetchProjects().then(renderProjects);
+    </script>
+</body>
+</html>
