@@ -10,6 +10,7 @@ Vibe Coding 实验场 - 存放 AI 辅助生成的静态网页作品集。
 | [payment-api-posters](./payment-api-posters/)                 | 支付 API 编辑海报              |
 | [twitter-2026-fortune](./twitter-2026-fortune/)               | Twitter 2026 运势技术设计      |
 | [shanxi-ancient-architecture](./shanxi-ancient-architecture/) | 山西古建巡礼视觉设计           |
+| [editorial-poster](./editorial-poster/)                       | 个人介绍编辑风格海报           |
 
 ## 在线访问
 

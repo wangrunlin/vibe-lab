@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wang Runlin | Editorial Poster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-paper: #f2efe9;
+            --text-ink: #1a1a1a;
+            --accent-orange: #d95e00;
+        }
+
+        body {
+            background-color: #e5e5e5;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: flex-start;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        .poster-container {
+            display: flex;
+            gap: 40px;
+            flex-wrap: nowrap;
+        }
+
+        .card {
+            width: 600px;
+            height: 800px;
+            flex-shrink: 0;
+            background-color: var(--bg-paper);
+            color: var(--text-ink);
+            position: relative;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-dark {
+            background-color: var(--text-ink);
+            color: var(--bg-paper);
+        }
+
+        .noise-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.06;
+            mix-blend-mode: multiply;
+            z-index: 100;
+        }
+
+        .serif-title { font-family: 'Noto Serif SC', serif; }
+        .oswald-num { font-family: 'Oswald', sans-serif; }
+
+        .line-accent {
+            height: 4px;
+            background-color: var(--accent-orange);
+            width: 60px;
+            margin-bottom: 20px;
+        }
+
+        /* Border frame */
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(26, 26, 26, 0.05);
+            pointer-events: none;
+        }
+        .card-dark::after {
+            border-color: rgba(242, 239, 233, 0.1);
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SVG Noise Filter Definition -->
+    <svg style="display: none;">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+        </filter>
+    </svg>
+
+    <div class="poster-container">
+
+        <!-- CARD 1: THE COVER -->
+        <div class="card">
+            <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+            <div class="flex justify-between items-start">
+                <span class="oswald-num text-xl font-bold border-b-2 border-black">2025/SUMMARY</span>
+                <span class="oswald-num text-xl">Nº 01</span>
+            </div>
+            
+            <div class="mt-auto">
+                <div class="line-accent"></div>
+                <h1 class="serif-title text-8xl font-black leading-none mb-4 tracking-tighter">WANG<br>RUNLIN</h1>
+                <p class="text-2xl font-medium tracking-widest uppercase mb-12" style="color: var(--accent-orange);">Indie Developer / Digital Nomad</p>
+                <div class="flex items-end justify-between">
+                    <div class="text-sm font-bold uppercase leading-tight">
+                        一人公司创始人<br>构建 AI + IMAGE 核心生态
+                    </div>
+                    <div class="oswald-num text-6xl opacity-10 font-bold leading-none">ALIN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2: IDENTITY & FOOTPRINT -->
+        <div class="card">
+            <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+            <div class="flex justify-between items-start mb-16">
+                <h2 class="oswald-num text-3xl font-bold tracking-tighter">01 / IDENTITY</h2>
+                <span class="oswald-num text-xl">Nº 02</span>
+            </div>
+
+            <div class="relative mb-12">
+                <h3 class="serif-title text-5xl mb-6">身份定位</h3>
+                <p class="text-xl leading-relaxed opacity-80 mb-8">
+                    2025年11月通过 Stripe Atlas 注册美国公司。全职独立开发，构建多个小型 SaaS 产品，长期移动办公。
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <div class="flex gap-4">
+                    <span class="oswald-num text-4xl font-bold text-orange-600">01</span>
+                    <div>
+                        <h4 class="font-bold text-xl uppercase">Solo Founder</h4>
+                        <p class="opacity-60">一人公司创始人，深耕 AI 图像方向</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <span class="oswald-num text-4xl font-bold text-orange-600">02</span>
+                    <div>
+                        <h4 class="font-bold text-xl uppercase">Digital Nomad</h4>
+                        <p class="opacity-60">常驻北京、深圳、香港、成都、广西</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <span class="oswald-num text-4xl font-bold text-orange-600">03</span>
+                    <div>
+                        <h4 class="font-bold text-xl uppercase">SaaS Builder</h4>
+                        <p class="opacity-60">快速验证市场，追求极简美学</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-auto border-t border-black/10 pt-4 flex justify-between items-center">
+                <span class="text-xs font-bold uppercase">STRIPE ATLAS REGISTERED</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+
+        <!-- CARD 3: TECH STACK -->
+        <div class="card">
+            <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+            <div class="flex justify-between items-start mb-12">
+                <h2 class="oswald-num text-3xl font-bold tracking-tighter">02 / TECHNOLOGY</h2>
+                <span class="oswald-num text-xl">Nº 03</span>
+            </div>
+
+            <h3 class="serif-title text-5xl mb-10">核心技术栈</h3>
+
+            <div class="grid grid-cols-1 gap-6">
+                <div class="border-l-4 border-black pl-6 py-2">
+                    <span class="text-xs uppercase font-bold opacity-40 block mb-1">Frontend</span>
+                    <p class="text-lg font-bold">Next.js (App Router), Tailwind CSS, Astro</p>
+                </div>
+                <div class="border-l-4 border-black pl-6 py-2">
+                    <span class="text-xs uppercase font-bold opacity-40 block mb-1">Backend / Edge</span>
+                    <p class="text-lg font-bold">Cloudflare Workers, Vercel, PostgreSQL</p>
+                </div>
+                <div class="border-l-4 border-black pl-6 py-2">
+                    <span class="text-xs uppercase font-bold opacity-40 block mb-1">Payment</span>
+                    <p class="text-lg font-bold">Stripe + ZA Bank Infrastructure</p>
+                </div>
+                <div class="border-l-4 border-black pl-6 py-2" style="border-color: var(--accent-orange);">
+                    <span class="text-xs uppercase font-bold opacity-40 block mb-1" style="color: var(--accent-orange);">Specialty</span>
+                    <p class="text-lg font-bold">AI 方向 (Image/Video API 集成)</p>
+                </div>
+            </div>
+
+            <div class="mt-auto bg-black text-white p-6 -mx-12 mb-[-50px]">
+                <p class="text-xs tracking-[0.2em] uppercase opacity-70 mb-2">Technical Philosophy</p>
+                <p class="serif-title text-2xl">MVP 优先，快速 Ship Daily</p>
+            </div>
+        </div>
+
+        <!-- CARD 4: FINANCIAL GOALS (DARK MODE) -->
+        <div class="card card-dark">
+            <div class="noise-overlay" style="filter: url(#noiseFilter); opacity: 0.12;"></div>
+            <div class="flex justify-between items-start mb-12">
+                <h2 class="oswald-num text-3xl font-bold tracking-tighter" style="color: var(--accent-orange);">03 / VISION</h2>
+                <span class="oswald-num text-xl opacity-50">Nº 04</span>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="serif-title text-6xl mb-4 leading-tight">2026<br>核心目标</h3>
+                <div class="line-accent w-full opacity-30"></div>
+            </div>
+
+            <div class="flex flex-col gap-8">
+                <div class="flex items-center justify-between">
+                    <span class="text-xl uppercase tracking-widest font-bold">Passive Income</span>
+                    <span class="oswald-num text-5xl font-bold" style="color: var(--accent-orange);">$1000<small class="text-sm font-normal">/mo</small></span>
+                </div>
+                <div class="space-y-4 border-t border-white/10 pt-6">
+                    <div class="flex justify-between opacity-80">
+                        <span>MakeImg.AI</span>
+                        <span class="oswald-num">$500+</span>
+                    </div>
+                    <div class="flex justify-between opacity-80">
+                        <span>SEO Mini Sites</span>
+                        <span class="oswald-num">$200+</span>
+                    </div>
+                    <div class="flex justify-between opacity-80">
+                        <span>Other SaaS</span>
+                        <span class="oswald-num">$300+</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-auto text-center border-2 border-orange-600/30 p-4">
+                <p class="text-sm uppercase tracking-widest font-bold mb-1">Mission Statement</p>
+                <p class="text-lg serif-title">打造能自给自足的一人公司体系</p>
+            </div>
+        </div>
+
+        <!-- CARD 5: LIFESTYLE & EXPERIENCE -->
+        <div class="card">
+            <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+            <div class="flex justify-between items-start mb-12">
+                <h2 class="oswald-num text-3xl font-bold tracking-tighter">04 / LIFESTYLE</h2>
+                <span class="oswald-num text-xl">Nº 05</span>
+            </div>
+
+            <div class="flex gap-8 items-start mb-10">
+                <div class="flex-1">
+                    <h3 class="serif-title text-4xl mb-4">数字游民生活</h3>
+                    <p class="opacity-70 leading-relaxed">
+                        不仅是自由，更是为 NZ/AU/荷兰 签证建立自由职业收入基础。2026年目标荷兰陪伴签证。
+                    </p>
+                </div>
+                <div class="w-1/3 oswald-num text-7xl font-bold opacity-5 leading-none vertical-text">FREEDOM</div>
+            </div>
+
+            <div class="bg-gray-100 p-8 rounded-sm mb-auto">
+                <h4 class="oswald-num text-xs uppercase font-bold mb-4 tracking-widest text-orange-700">Recent Success</h4>
+                <div class="space-y-4">
+                    <div>
+                        <p class="font-bold">Softie AI</p>
+                        <p class="text-sm opacity-60">曾负责 7 人团队管理，AI 陪伴应用深耕。</p>
+                    </div>
+                    <div>
+                        <p class="font-bold">Ghibli AI Image</p>
+                        <p class="text-sm opacity-60">快速变现 $100，验证 AI 趋势变现能力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 6: OUTRO / COMMUNICATION -->
+        <div class="card">
+            <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+            <div class="flex justify-between items-start mb-24">
+                <h2 class="oswald-num text-3xl font-bold tracking-tighter">05 / CONTACT</h2>
+                <span class="oswald-num text-xl">Nº 06</span>
+            </div>
+
+            <div class="text-center mb-16">
+                <h3 class="serif-title text-5xl mb-4">沟通偏好</h3>
+                <div class="flex justify-center gap-2 mb-8">
+                    <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-tighter">No Emoji</span>
+                    <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-tighter">Structured</span>
+                    <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-tighter">Direct</span>
+                </div>
+                <p class="text-2xl font-light italic leading-relaxed">
+                    "直截了当，不要客套。"
+                </p>
+            </div>
+
+            <div class="mt-auto">
+                <div class="grid grid-cols-2 gap-0 border-t border-black">
+                    <div class="p-4 border-r border-black">
+                        <p class="oswald-num text-xs font-bold opacity-40 uppercase">Focus</p>
+                        <p class="font-bold">Cloudflare / Next.js</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="oswald-num text-xs font-bold opacity-40 uppercase">Business</p>
+                        <p class="font-bold">One Person Co.</p>
+                    </div>
+                </div>
+                <div class="bg-black text-white p-6 flex justify-between items-center">
+                    <span class="serif-title text-xl tracking-tighter">KEEP SHIPPING.</span>
+                    <div class="flex gap-4">
+                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
