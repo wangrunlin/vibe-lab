@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wangrunlin.com 重做计划 | Editorial Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-paper: #f2efe9;
+            --text-ink: #1a1a1a;
+            --accent-orange: #d95e00;
+            --bg-dark: #121212;
+        }
+
+        body {
+            background-color: #e5e7eb;
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        /* 噪点纹理 */
+        .noise-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.06;
+            mix-blend-mode: multiply;
+            z-index: 50;
+        }
+
+        .poster-card {
+            width: 600px;
+            height: 800px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            padding: 48px;
+        }
+
+        .font-serif { font-family: 'Noto Serif SC', serif; }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+
+        /* 特殊布局 */
+        .side-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: var(--text-ink);
+            width: 100%;
+            opacity: 0.2;
+            margin: 24px 0;
+        }
+
+        .dark-mode {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+        }
+
+        .dark-mode .divider {
+            background-color: #ffffff;
+            opacity: 0.3;
+        }
+
+        .accent-text { color: var(--accent-orange); }
+        .bg-accent { background-color: var(--accent-orange); }
+    </style>
+</head>
+<body class="flex flex-wrap gap-12 justify-center">
+
+    <!-- Noise SVG Definition -->
+    <svg style="display:none;">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+        </filter>
+    </svg>
+
+    <!-- CARD 1: THE COVER -->
+    <div class="poster-card" style="background-color: var(--bg-paper);">
+        <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+        
+        <div class="flex justify-between items-start mb-auto">
+            <span class="font-oswald text-xl tracking-tighter">PLAN / 2025</span>
+            <span class="font-oswald text-xl tracking-tighter">RE-BUILDING</span>
+        </div>
+
+        <div class="mt-12">
+            <h1 class="font-oswald text-[90px] leading-[0.85] font-bold uppercase break-all">
+                Wang<br>Runlin<br><span class="accent-text">.com</span>
+            </h1>
+            <div class="divider mt-8 opacity-100 h-2 bg-accent"></div>
+            <p class="font-serif text-3xl mt-6 tracking-tight">个人网站重做计划</p>
+            <p class="text-sm mt-4 opacity-60 leading-relaxed uppercase tracking-widest font-oswald">
+                Main Page • Blog • Portfolio • Lab
+            </p>
+        </div>
+
+        <div class="mt-auto flex items-end justify-between">
+            <div class="text-xs font-oswald tracking-[0.2em] opacity-40 uppercase">
+                Established 2025-12-31<br>Designed for Clarity
+            </div>
+            <div class="w-12 h-12 bg-black flex items-center justify-center text-white">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 2: POSITIONING -->
+    <div class="poster-card" style="background-color: var(--bg-paper);">
+        <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+        
+        <div class="font-oswald text-sm tracking-widest opacity-40 mb-8 uppercase">Section 01 / Positioning</div>
+        
+        <h2 class="font-serif text-5xl font-black mb-12 border-l-8 border-orange-600 pl-6">双站位<br>品牌策略</h2>
+
+        <div class="grid grid-cols-2 gap-8 mb-12">
+            <div class="flex flex-col">
+                <span class="font-oswald text-4xl font-bold mb-2">ALIN.RUN</span>
+                <span class="text-xs uppercase tracking-widest opacity-60 mb-4 font-bold">Bento Style</span>
+                <div class="divider"></div>
+                <p class="text-sm leading-relaxed">快速名片 / 链接聚合<br>极简主义的数字窗口</p>
+            </div>
+            <div class="flex flex-col">
+                <span class="font-oswald text-4xl font-bold mb-2 accent-text italic">WRL.COM</span>
+                <span class="text-xs uppercase tracking-widest opacity-60 mb-4 font-bold">Editorial Style</span>
+                <div class="divider"></div>
+                <p class="text-sm leading-relaxed">完整个人品牌 / 内容沉淀<br>专业性与实验性的交汇</p>
+            </div>
+        </div>
+
+        <div class="bg-white/50 p-8 mt-auto border border-black/5">
+            <p class="font-serif italic text-lg opacity-80 leading-relaxed">
+                “区分快速触达与深度内容，<br>为每一个灵感找到最合适的宿主。”
+            </p>
+        </div>
+    </div>
+
+    <!-- CARD 3: ARCHITECTURE -->
+    <div class="poster-card" style="background-color: var(--bg-paper);">
+        <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+        
+        <div class="font-oswald text-sm tracking-widest opacity-40 mb-8 uppercase">Section 02 / Architecture</div>
+        
+        <h2 class="font-oswald text-6xl font-bold mb-4 uppercase">System<br>Structure</h2>
+        <div class="divider h-1 opacity-100"></div>
+
+        <div class="space-y-6 mt-8">
+            <div class="flex items-center gap-6 group">
+                <span class="font-oswald text-2xl opacity-20 group-hover:opacity-100 transition-opacity">01</span>
+                <div class="flex-1 flex justify-between items-baseline border-b border-black/10 pb-2">
+                    <span class="font-bold text-xl uppercase font-oswald">/ (Root)</span>
+                    <span class="text-xs opacity-50">首页: 亮点展示与介绍</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-6 group">
+                <span class="font-oswald text-2xl opacity-20 group-hover:opacity-100 transition-opacity text-orange-600">02</span>
+                <div class="flex-1 flex justify-between items-baseline border-b border-black/10 pb-2">
+                    <span class="font-bold text-xl uppercase font-oswald">/blog</span>
+                    <span class="text-xs opacity-50">Markdown/MDX 内容沉淀</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-6 group">
+                <span class="font-oswald text-2xl opacity-20 group-hover:opacity-100 transition-opacity">03</span>
+                <div class="flex-1 flex justify-between items-baseline border-b border-black/10 pb-2">
+                    <span class="font-bold text-xl uppercase font-oswald">/projects</span>
+                    <span class="text-xs opacity-50">作品集: 独立开发成果</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-6 group">
+                <span class="font-oswald text-2xl opacity-20 group-hover:opacity-100 transition-opacity text-orange-600">04</span>
+                <div class="flex-1 flex justify-between items-baseline border-b border-black/10 pb-2">
+                    <span class="font-bold text-xl uppercase font-oswald">/lab</span>
+                    <span class="text-xs opacity-50 font-bold">艺术感 & 炫技实验场</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-auto grid grid-cols-3 gap-2">
+            <div class="bg-black text-white p-4 text-center">
+                <div class="font-oswald text-xs mb-1 uppercase opacity-60">Framework</div>
+                <div class="font-bold font-oswald">ASTRO</div>
+            </div>
+            <div class="bg-zinc-200 p-4 text-center border border-black/5">
+                <div class="font-oswald text-xs mb-1 uppercase opacity-60 text-black/50">Styling</div>
+                <div class="font-bold font-oswald">TAILWIND</div>
+            </div>
+            <div class="bg-zinc-200 p-4 text-center border border-black/5">
+                <div class="font-oswald text-xs mb-1 uppercase opacity-60 text-black/50">Deploy</div>
+                <div class="font-bold font-oswald">VERCEL</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 4: DARK MODE / DESIGN STRATEGY (DARK) -->
+    <div class="poster-card dark-mode">
+        <div class="noise-overlay" style="filter: url(#noiseFilter); opacity: 0.1; mix-blend-mode: soft-light;"></div>
+        
+        <div class="font-oswald text-sm tracking-[0.5em] text-orange-600 mb-8 uppercase font-bold text-center">Design Core Principles</div>
+        
+        <div class="flex-1 flex flex-col justify-center text-center">
+            <h3 class="font-serif text-[42px] leading-tight font-black mb-12">
+                开发者风格的<br><span class="text-orange-500">分层视觉</span>重构
+            </h3>
+            
+            <div class="space-y-10">
+                <div>
+                    <span class="font-oswald text-xs uppercase tracking-widest opacity-40">Rule 01</span>
+                    <p class="text-xl font-serif mt-2">黑白基调 + 品牌色点缀</p>
+                </div>
+                <div>
+                    <span class="font-oswald text-xs uppercase tracking-widest opacity-40">Rule 02</span>
+                    <p class="text-xl font-serif mt-2">适度动效，绝不过度</p>
+                </div>
+                <div>
+                    <span class="font-oswald text-xs uppercase tracking-widest opacity-40">Rule 03</span>
+                    <p class="text-xl font-serif mt-2">艺术感与炫技的局部释放</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-auto border-t border-white/20 pt-8 flex justify-between items-center">
+            <div class="font-oswald text-5xl font-bold italic opacity-10">MINIMAL</div>
+            <div class="bg-orange-600 w-24 h-8 rounded-full flex items-center justify-center text-[10px] font-bold tracking-widest">
+                MODERNIST
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 5: ROADMAP -->
+    <div class="poster-card" style="background-color: var(--bg-paper);">
+        <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+        
+        <div class="font-oswald text-sm tracking-widest opacity-40 mb-12 uppercase">Phase Timeline</div>
+        
+        <div class="flex-1 relative pl-12">
+            <!-- Timeline Line -->
+            <div class="absolute left-4 top-0 bottom-0 w-px bg-black opacity-20"></div>
+
+            <div class="mb-12 relative">
+                <div class="absolute -left-[37px] top-1 w-2.5 h-2.5 rounded-full bg-black"></div>
+                <h4 class="font-oswald font-bold text-2xl uppercase">Phase 01 / Framework</h4>
+                <p class="text-xs opacity-60 mb-3">Est: 1-2 Days</p>
+                <ul class="text-sm space-y-1 list-disc list-inside opacity-80 leading-relaxed">
+                    <li>Astro 项目初始化</li>
+                    <li>Tailwind 样式配置</li>
+                    <li>基础布局与多级路由搭建</li>
+                </ul>
+            </div>
+
+            <div class="mb-12 relative">
+                <div class="absolute -left-[37px] top-1 w-2.5 h-2.5 rounded-full bg-orange-600"></div>
+                <h4 class="font-oswald font-bold text-2xl uppercase">Phase 02 / Core Pages</h4>
+                <p class="text-xs opacity-60 mb-3">Est: 2-3 Days</p>
+                <ul class="text-sm space-y-1 list-disc list-inside opacity-80 leading-relaxed">
+                    <li>首页设计与响应式开发</li>
+                    <li>关于页内容填充</li>
+                    <li>项目展示页逻辑构建</li>
+                </ul>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -left-[37px] top-1 w-2.5 h-2.5 border-2 border-black bg-white"></div>
+                <h4 class="font-oswald font-bold text-2xl uppercase">Phase 03 / Blog & Lab</h4>
+                <p class="text-xs opacity-60 mb-3">Ongoing</p>
+                <ul class="text-sm space-y-1 list-disc list-inside opacity-80 leading-relaxed">
+                    <li>Markdown/MDX 博客系统</li>
+                    <li>实验室入口与首个 Demo</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-auto flex gap-4">
+            <div class="flex-1 border border-black p-4 flex flex-col items-center">
+                <span class="font-oswald text-xl font-bold">25.12</span>
+                <span class="text-[10px] uppercase opacity-40">Start</span>
+            </div>
+            <div class="flex-1 bg-black text-white p-4 flex flex-col items-center">
+                <span class="font-oswald text-xl font-bold">Q1.26</span>
+                <span class="text-[10px] uppercase opacity-40">Refine</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 6: OUTRO / CTA -->
+    <div class="poster-card" style="background-color: var(--bg-paper);">
+        <div class="noise-overlay" style="filter: url(#noiseFilter);"></div>
+        
+        <div class="m-auto text-center">
+            <div class="font-oswald text-xl mb-4 text-orange-600 font-bold uppercase tracking-[0.4em]">Fin.</div>
+            <h2 class="font-serif text-6xl font-black mb-8 leading-tight">期待<br>全新登场</h2>
+            <div class="flex justify-center gap-4 text-2xl mb-12">
+                <i class="fa-brands fa-github cursor-pointer hover:text-orange-600 transition-colors"></i>
+                <i class="fa-brands fa-x-twitter cursor-pointer hover:text-orange-600 transition-colors"></i>
+                <i class="fa-solid fa-envelope cursor-pointer hover:text-orange-600 transition-colors"></i>
+            </div>
+            <div class="font-oswald text-sm opacity-40 tracking-widest uppercase">
+                Last Update: 2025-12-31<br>
+                Build with Passion and Code
+            </div>
+        </div>
+
+        <div class="mt-auto border-t-2 border-black pt-6 flex justify-between items-center font-oswald text-[10px] font-bold">
+            <span>WANG RUNLIN PERSONAL BRAND</span>
+            <span class="bg-black text-white px-3 py-1 uppercase">V2.0.0</span>
+        </div>
+    </div>
+
+</body>
+</html>

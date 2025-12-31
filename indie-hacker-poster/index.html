@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿林 - 独立开发者社论海报</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-paper: #f2efe9;
+            --text-ink: #1a1a1a;
+            --accent: #d95e00; /* 爱马仕橙 */
+        }
+
+        body {
+            background-color: #e5e7eb;
+            font-family: 'Noto Sans SC', sans-serif;
+            margin: 0;
+            padding: 40px 0;
+            overflow-x: auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* 噪点纹理叠加层 */
+        .noise-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.06;
+            filter: contrast(120%) brightness(100%);
+            z-index: 50;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3ExternalIcon %3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .poster-card {
+            width: 600px;
+            height: 800px;
+            flex-shrink: 0;
+            position: relative;
+            background-color: var(--bg-paper);
+            color: var(--text-ink);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            margin: 0 40px;
+            display: flex;
+            flex-direction: column;
+            padding: 50px;
+        }
+
+        /* 强调色应用 */
+        .text-accent { color: var(--accent); }
+        .bg-accent { background-color: var(--accent); }
+        
+        /* 字体应用 */
+        .font-serif { font-family: 'Noto Serif SC', serif; }
+        .font-oswald { font-family: 'Oswald', sans-serif; }
+
+        /* 特殊布局 */
+        .dark-mode {
+            background-color: var(--text-ink);
+            color: var(--bg-paper);
+        }
+
+        .line-clamp-vertical {
+            writing-mode: vertical-rl;
+        }
+
+        .border-accent { border-color: var(--accent); }
+
+        /* 装饰元素 */
+        .grid-dot {
+            background-image: radial-gradient(var(--accent) 1px, transparent 0);
+            background-size: 20px 20px;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body class="p-10">
+
+    <!-- Card 1: The Cover -->
+    <section class="poster-card">
+        <div class="noise-overlay"></div>
+        <div class="flex justify-between items-start mb-12">
+            <div class="font-oswald text-xl tracking-widest border-b-2 border-accent pb-1">INDIE HACKER 2025</div>
+            <div class="font-oswald text-xl">VOL. 01</div>
+        </div>
+        
+        <div class="mt-auto">
+            <h1 class="font-serif text-[110px] leading-[0.95] font-black mb-6">
+                阿林<br>
+                <span class="text-accent text-[80px]">ALIN.</span>
+            </h1>
+            <p class="text-2xl font-medium tracking-tighter mb-10 max-w-[400px]">
+                独立开发者，专注 AI 图像产品，数字游民生活方式践行者。
+            </p>
+        </div>
+
+        <div class="flex items-end justify-between border-t border-black/10 pt-6">
+            <div class="text-sm font-bold opacity-60">
+                PORTFOLIO & PROFILE<br>
+                BUILDING FREEDOM WITH CODE
+            </div>
+            <div class="font-oswald text-4xl font-bold opacity-10 italic">01</div>
+        </div>
+    </section>
+
+    <!-- Card 2: Identity & Company -->
+    <section class="poster-card">
+        <div class="noise-overlay"></div>
+        <div class="absolute top-0 right-0 w-32 h-full grid-dot"></div>
+        
+        <div class="relative z-10">
+            <span class="bg-accent text-white px-3 py-1 font-oswald text-sm">CONCEPT</span>
+            <h2 class="font-serif text-6xl mt-6 mb-12 font-black leading-tight">
+                一人公司<br>的创始人
+            </h2>
+
+            <div class="space-y-8">
+                <div class="flex items-start gap-6">
+                    <span class="font-oswald text-3xl text-accent font-bold">01</span>
+                    <div>
+                        <h3 class="text-xl font-black mb-2">全职独立开发</h3>
+                        <p class="opacity-80 leading-relaxed">2025 年正式启航，离开传统职场，在美国注册公司，构建属于自己的数字资产。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <span class="font-oswald text-3xl text-accent font-bold">02</span>
+                    <div>
+                        <h3 class="text-xl font-black mb-2">专注 AI 图像</h3>
+                        <p class="opacity-80 leading-relaxed">捕捉趋势变现的可能性。从 Ghibli AI 到 MakeImg.AI，探索 AI 与视觉审美的结合点。</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6">
+                    <span class="font-oswald text-3xl text-accent font-bold">03</span>
+                    <div>
+                        <h3 class="text-xl font-black mb-2">快速验证逻辑</h3>
+                        <p class="opacity-80 leading-relaxed">追求 Ship Daily 而非完美。相信快速迭代是小团队生存的核心竞争力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-auto font-oswald text-9xl font-black opacity-[0.03] absolute -bottom-10 -left-10 select-none">
+            IDENTITY
+        </div>
+    </section>
+
+    <!-- Card 3: Tech & Products (DARK MODE) -->
+    <section class="poster-card dark-mode">
+        <div class="noise-overlay"></div>
+        <div class="flex-1 flex flex-col justify-center">
+            <div class="mb-10">
+                <p class="font-oswald tracking-[0.3em] text-accent mb-2 uppercase">Core Tech Stack</p>
+                <div class="flex flex-wrap gap-4 mt-4">
+                    <span class="border border-white/30 px-4 py-2 font-oswald text-xl">NEXT.JS</span>
+                    <span class="border border-white/30 px-4 py-2 font-oswald text-xl">CLOUDFLARE</span>
+                    <span class="border border-white/30 px-4 py-2 font-oswald text-xl">STRIPE</span>
+                </div>
+            </div>
+
+            <div class="bg-accent/10 border-l-4 border-accent p-8 my-8">
+                <p class="italic font-serif text-3xl leading-snug">
+                    "2025 年的目标是实现 <span class="text-accent font-bold font-oswald text-4xl">$1000/月</span> 的被动收入。"
+                </p>
+            </div>
+
+            <div class="mt-8">
+                <h4 class="font-oswald text-sm tracking-widest opacity-50 mb-4">CURRENT PROJECT</h4>
+                <div class="flex justify-between items-end border-b border-white/20 pb-4">
+                    <span class="text-4xl font-black font-serif">MakeImg.AI</span>
+                    <span class="font-oswald text-xl text-accent">ACTIVE</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 right-10">
+            <i class="fa-solid fa-microchip text-8xl opacity-10"></i>
+        </div>
+    </section>
+
+    <!-- Card 4: Nomad Lifestyle -->
+    <section class="poster-card">
+        <div class="noise-overlay"></div>
+        <div class="flex justify-between items-start">
+            <h2 class="font-serif text-5xl font-black leading-none">数字游民<br><span class="text-2xl font-light">Digital Nomad</span></h2>
+            <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center">
+                <i class="fa-solid fa-location-arrow text-white text-3xl"></i>
+            </div>
+        </div>
+
+        <div class="mt-16 flex-1">
+            <p class="text-xl leading-relaxed mb-12">
+                对我来说，工作不应该被地点绑定。<br>
+                代码可以在任何有网络的地方写。
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="border border-black/10 p-4">
+                    <span class="block font-oswald text-accent text-lg">ROUTE</span>
+                    <span class="text-2xl font-black">BEIJING</span>
+                </div>
+                <div class="border border-black/10 p-4">
+                    <span class="block font-oswald text-accent text-lg">ROUTE</span>
+                    <span class="text-2xl font-black">SHENZHEN</span>
+                </div>
+                <div class="border border-black/10 p-4">
+                    <span class="block font-oswald text-accent text-lg">ROUTE</span>
+                    <span class="text-2xl font-black">HONGKONG</span>
+                </div>
+                <div class="border border-black/10 p-4">
+                    <span class="block font-oswald text-accent text-lg">ROUTE</span>
+                    <span class="text-2xl font-black">CHENGDU</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-auto pt-8 flex items-center gap-4">
+            <div class="h-[1px] flex-1 bg-black/20"></div>
+            <span class="font-oswald text-sm tracking-widest opacity-40">MOVEMENT IS LIFE</span>
+        </div>
+    </section>
+
+    <!-- Card 5: Outro -->
+    <section class="poster-card justify-center items-center text-center">
+        <div class="noise-overlay"></div>
+        
+        <div class="w-16 h-1 bg-accent mb-12"></div>
+        
+        <h2 class="font-serif text-5xl font-black mb-8 leading-tight">
+            自由是可以被<br><span class="text-accent underline decoration-4 underline-offset-8">构建出来</span>的
+        </h2>
+        
+        <p class="text-lg opacity-70 max-w-[400px] mb-16">
+            我相信小而美的产品，相信一个人也能做出有价值的东西。不是为了躺平，而是为了拥有选择的权利。
+        </p>
+
+        <div class="flex gap-8 text-3xl mb-12">
+            <i class="fa-brands fa-x-twitter opacity-30 hover:opacity-100 transition-opacity cursor-pointer"></i>
+            <i class="fa-solid fa-globe opacity-30 hover:opacity-100 transition-opacity cursor-pointer"></i>
+            <i class="fa-brands fa-github opacity-30 hover:opacity-100 transition-opacity cursor-pointer"></i>
+        </div>
+
+        <div class="text-sm font-oswald tracking-[0.5em] opacity-40">
+            WANG RUNLIN / 2025 PORTFOLIO
+        </div>
+        
+        <div class="absolute bottom-0 left-0 w-full h-2 bg-accent"></div>
+    </section>
+
+</body>
+</html>
